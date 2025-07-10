@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relógio Digital</title>
+  <style>
+    body {
+      background: #222;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .clock {
+      color: #0ff;
+      font-size: 5em;
+      font-family: 'Courier New', Courier, monospace;
+      background: #111;
+      padding: 40px 60px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #0ff5;
+      letter-spacing: 0.1em;
+    }
+  </style>
+</head>
+<body>
+  <div class="clock" id="clock">00:00:00</div>
+  <script>
+    function updateClock() {
+      const now = new Date();
+      let h = String(now.getHours()).padStart(2, '0');
+      let m = String(now.getMinutes()).padStart(2, '0');
+      let s = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('clock').textContent = `${h}:${m}:${s}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock(); // inicializa já com o horário atual
+  </script>
+</body>
+</html>
